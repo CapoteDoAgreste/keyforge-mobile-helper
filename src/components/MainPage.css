@@ -4,7 +4,7 @@ body{
 }
 
 .key{
-    width: 48vw;
+    height: 48vw;
 }
 .inline{
 
@@ -15,7 +15,7 @@ body{
     -o-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
-    width: 50vw;
+    height: 50vw;
     position: absolute;
     margin-top: 50VW;
 }
@@ -25,7 +25,7 @@ body{
     -o-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
-    width: 70vw;
+    height: 100vw;
     margin-left: 15vw;
     margin-top: -16vw;
 }

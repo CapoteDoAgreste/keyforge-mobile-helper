@@ -82,7 +82,7 @@ function MainPage() {
         playerAembar++;
       }
     });
-    if (playerAembar >= 6) {
+    if (playerAembar >= keyCost) {
       collect = true;
     }
 

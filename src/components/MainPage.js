@@ -80,7 +80,7 @@ function MainPage() {
 
     let newAembars = [...aembars];
     newAembars.forEach((element) => {
-      if (element.y >= 570 && !forged) {
+      if (element.y >= 480 && !forged) {
         playerAembar++;
       }
     });

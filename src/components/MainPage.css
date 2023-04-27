@@ -1,4 +1,5 @@
 body{
+    color: white;
     background-color: #555446;
     overflow: hidden;
 }
@@ -25,7 +26,7 @@ body{
     -o-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
-    height: 100vw;
+    height: 98vw;
     margin-left: 15vw;
     margin-top: -16vw;
 }
@@ -37,6 +38,7 @@ body{
 }
 
 .btn-div{
+    color: white;
     position: absolute;
     right: 5vw;
     top: 5vw;

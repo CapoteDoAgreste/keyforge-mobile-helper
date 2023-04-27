@@ -1,0 +1,43 @@
+body{
+    background-color: #555446;
+    overflow: hidden;
+}
+
+.key{
+    width: 48vw;
+}
+.inline{
+
+}
+.pile{
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    width: 50vw;
+    position: absolute;
+    margin-top: 50VW;
+}
+.card-image{
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    width: 70vw;
+    margin-left: 15vw;
+    margin-top: -16vw;
+}
+
+.aembar{
+    width: 15vw;
+    position: absolute;
+    left: 25vw;
+}
+
+.btn-div{
+    position: absolute;
+    right: 5vw;
+    top: 5vw;
+}

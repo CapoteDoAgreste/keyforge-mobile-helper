@@ -51,6 +51,8 @@ function MainPage() {
     setDragIndex(-1);
     setOffsetX(0);
     setOffsetY(0);
+
+    console.log(aembars);
   };
 
   const [key01Sprite, setKey01Sprite] = useState(unForgedKey);
@@ -87,7 +89,7 @@ function MainPage() {
     }
 
     newAembars.forEach((element) => {
-      if (element.y >= 570) {
+      if (element.y >= 488) {
         if (collect && collected < keyCost) {
           element.x = initialX;
           element.y = initialY;

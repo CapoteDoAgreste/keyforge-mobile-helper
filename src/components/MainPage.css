@@ -7,9 +7,6 @@ body{
 .key{
     height: 41vw;
 }
-.inline{
-
-}
 .pile{
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
@@ -42,4 +39,19 @@ body{
     position: absolute;
     right: 5vw;
     top: 5vw;
+}
+
+button{
+    border: none;
+    border-radius: 2vw;
+    width: 8vw;
+    height: 8vw;
+    color: white;
+    background-color: #ef971e;
+}
+
+#keycost{
+    margin-left: 3vw;
+    margin-right: 3vw;
+    font-weight: bolder;
 }

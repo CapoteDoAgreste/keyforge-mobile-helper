@@ -12,12 +12,12 @@ const numCols = 10; // Number of columns
 const aembarSize = 50; // Size of each aembar in pixels
 const initialX = 200; // Initial X position in pixels
 const initialY = 300; // Initial Y position in pixels
-var keyCost = 6;
+var keyCost = 6; //Cost to forge the key
 var key01IsForged = false;
 var key02IsForged = false;
 var key03IsForged = false;
-const minusText = "<";
-const plusText = ">";
+const minusText = "<"; //previous button Text
+const plusText = ">"; //next button Text
 
 function MainPage() {
   const [aembars, setAembars] = useState(
@@ -51,8 +51,6 @@ function MainPage() {
     setDragIndex(-1);
     setOffsetX(0);
     setOffsetY(0);
-
-    console.log(aembars);
   };
 
   const [key01Sprite, setKey01Sprite] = useState(unForgedKey);
@@ -79,44 +77,63 @@ function MainPage() {
     }
 
     let newAembars = [...aembars];
-    newAembars.forEach((element) => {
-      if (element.y >= 480 && !forged) {
-        playerAembar++;
+    if (!forged) {
+      newAembars.forEach((element) => {
+        if (element.y >= 480 && !forged) {
+          playerAembar++;
+        }
+      });
+      if (playerAembar >= keyCost) {
+        collect = true;
       }
-    });
-    if (playerAembar >= keyCost) {
-      collect = true;
-    }
 
-    newAembars.forEach((element) => {
-      if (element.y >= 488) {
-        if (collect && collected < keyCost) {
-          element.x = initialX;
-          element.y = initialY;
-          collected++;
-          forged = true;
+      newAembars.forEach((element) => {
+        if (element.y >= 488) {
+          if (collect && collected < keyCost) {
+            element.x = initialX;
+            element.y = initialY;
+            collected++;
+            forged = true;
+          }
+        }
+      });
+      if (collect) {
+        switch (index) {
+          case 1:
+            setKey01Sprite(forgedKey);
+            key01IsForged = true;
+            break;
+          case 2:
+            setKey02Sprite(forgedKey);
+            key02IsForged = true;
+            break;
+          case 3:
+            setKey03Sprite(forgedKey);
+            key03IsForged = true;
+            break;
+          default:
+            break;
         }
       }
-    });
-    if (collect) {
+      setAembars(newAembars);
+    } else {
       switch (index) {
         case 1:
-          setKey01Sprite(forgedKey);
-          key01IsForged = true;
+          setKey01Sprite(unForgedKey);
+          key01IsForged = false;
           break;
         case 2:
-          setKey02Sprite(forgedKey);
-          key02IsForged = true;
+          setKey02Sprite(unForgedKey);
+          key02IsForged = false;
           break;
         case 3:
-          setKey03Sprite(forgedKey);
-          key03IsForged = true;
+          setKey03Sprite(unForgedKey);
+          key03IsForged = false;
           break;
         default:
           break;
       }
     }
-    setAembars(newAembars);
   }
 
   const [keyCost, setKeyCost] = useState(6);
@@ -138,7 +155,7 @@ function MainPage() {
           <button id="minus" onClick={decreaseCost}>
             {minusText}
           </button>
-          <span id="keycost">{"      " + keyCost + "      "}</span>
+          <span id="keycost">{keyCost}</span>
           <button id="plus" onClick={increaseCost}>
             {plusText}
           </button>
@@ -148,7 +165,7 @@ function MainPage() {
             id="key1"
             src={key01Sprite}
             className="key"
-            onTouchStart={(event) => keyForge(1)}
+            onTouchEnd={(event) => keyForge(1)}
           />
           <img src={aembarPile} className="pile" />
           <br />
@@ -156,14 +173,14 @@ function MainPage() {
             id="key2"
             src={key02Sprite}
             className="key"
-            onTouchStart={(event) => keyForge(2)}
+            onTouchEnd={(event) => keyForge(2)}
           />
           <br />
           <img
             id="key3"
             src={key03Sprite}
             className="key"
-            onTouchStart={(event) => keyForge(3)}
+            onTouchEnd={(event) => keyForge(3)}
           />
         </div>
         <div className="aembar-repository"></div>

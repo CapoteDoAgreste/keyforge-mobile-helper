@@ -12,7 +12,7 @@ import aembarimage from "./images/single-aembar.png";
 
 const numRows = 2; // Number of rows
 const numCols = 10; // Number of columns
-var aembarSize = 50; // Size of each aembar in pixels
+var aembarSize = 35; // Size of each aembar in pixels
 var initialX = 160; // Initial X position in pixels
 var initialY = 280; // Initial Y position in pixels
 var key01IsForged = false;
@@ -38,7 +38,7 @@ if (width > 700) {
   cardX = (width * 640) / 1180;
   cardY = (height * 410) / 820;
 
-  if (height < 420) {
+  if (height < 428) {
     cardX = (width * 460) / 851;
     cardY = (height * 110) / 393;
     aembarSize = (width * 65) / 1180;
@@ -102,7 +102,7 @@ function MainPage() {
     cardX = (width * 640) / 1180;
     cardY = (height * 410) / 820;
 
-    if (height < 420) {
+    if (height < 428) {
       cardX = (width * 460) / 851;
       cardY = (height * 110) / 393;
       aembarSize = (width * 65) / 1180;

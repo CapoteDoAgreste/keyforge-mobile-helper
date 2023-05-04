@@ -17,14 +17,14 @@ body{
     }
     
     .key{
-        width: 20vw;
+        width: 29vh;
     }
     
     .pile{
         position: fixed;
         right: 2vw;
         top: -1vw;
-        width: 30vw;
+        width: 50vh;
     }
 
     .aembar{
@@ -43,9 +43,9 @@ body{
         -ms-transform: rotate(90deg);
         transform: rotate(90deg);
         position: fixed;
-        width: 30vw;
+        width: 50vh;
         right: 8vw;
-        bottom: -3vw;
+        bottom: -5vw;
     }
 
     .btn-div{
@@ -74,7 +74,7 @@ body{
         #key01{
             position: fixed;
             bottom: 0vw;
-            left: 20vw;
+            left: 30vh;
         }
 
         .pile{
@@ -86,7 +86,7 @@ body{
     }
 }
 
-@media (max-width: 424px) {
+@media (max-width: 428px) {
     .key{
         height: 41vw;
     }
@@ -106,7 +106,7 @@ body{
         -o-transform: rotate(90deg);
         -ms-transform: rotate(90deg);
         transform: rotate(90deg);
-        height: 98vw;
+        height: 45vh;
         margin-left: 15vw;
         margin-top: -14vw;
     }
@@ -159,7 +159,7 @@ body{
         top:15vw
     }
     
-    @media (max-height: 670px) {
+    @media (max-height: 800px) {
     
         .card-image{
             -webkit-transform: rotate(90deg);
@@ -173,7 +173,7 @@ body{
         }
     
         .key{
-            height: 39vw;
+            height: 20vh;
         }
     }
     

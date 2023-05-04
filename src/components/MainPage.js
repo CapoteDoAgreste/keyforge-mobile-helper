@@ -1,24 +1,54 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/alt-text */
 import { useState } from "react";
 import "./MainPage.css";
 import unForgedKey from "./images/key-without-aembar.png";
 import forgedKey from "./images/key-with-aembar.png";
+import forgedKeyBlue from "./images/key-with-aembar-blue.png";
+import forgedKeyRed from "./images/key-with-aembar-red.png";
 import aembarPile from "./images/aembar.png";
 import card from "./images/card.png";
 import aembarimage from "./images/single-aembar.png";
 
 const numRows = 2; // Number of rows
 const numCols = 10; // Number of columns
-const aembarSize = 50; // Size of each aembar in pixels
-const initialX = 200; // Initial X position in pixels
-const initialY = 300; // Initial Y position in pixels
-var keyCost = 6; //Cost to forge the key
+var aembarSize = 50; // Size of each aembar in pixels
+var initialX = 160; // Initial X position in pixels
+var initialY = 280; // Initial Y position in pixels
 var key01IsForged = false;
 var key02IsForged = false;
 var key03IsForged = false;
+var cardX = 700;
+var cardY = 700;
 const minusText = "<"; //previous button Text
 const plusText = ">"; //next button Text
+var width =
+  window.innerWidth ||
+  document.documentElement.clientWidth ||
+  document.body.clientWidth; //Get width of the screen
 
+var height =
+  window.innerHeight ||
+  document.documentElement.clientHeight ||
+  document.body.clientHeight; //Get height of the screen
+
+if (width > 700) {
+  initialX = width - 200; // Initial X position in pixels
+  aembarSize = (width * 90) / 1180;
+  cardX = (width * 640) / 1180;
+  cardY = (height * 410) / 820;
+
+  if (height < 420) {
+    cardX = (width * 460) / 851;
+    cardY = (height * 110) / 393;
+    aembarSize = (width * 65) / 1180;
+    initialX = 310;
+    initialY = 170;
+  }
+
+  console.log(cardX, cardY);
+}
+console.log(width);
 function MainPage() {
   const [aembars, setAembars] = useState(
     Array(numRows * numCols).fill({ x: initialX, y: initialY })
@@ -51,6 +81,8 @@ function MainPage() {
     setDragIndex(-1);
     setOffsetX(0);
     setOffsetY(0);
+
+    console.log(aembars);
   };
 
   const [key01Sprite, setKey01Sprite] = useState(unForgedKey);
@@ -58,6 +90,26 @@ function MainPage() {
   const [key03Sprite, setKey03Sprite] = useState(unForgedKey);
 
   function keyForge(index) {
+    width =
+      window.innerWidth ||
+      document.documentElement.clientWidth ||
+      document.body.clientWidth; //Get width of the screen
+
+    height =
+      window.innerHeight ||
+      document.documentElement.clientHeight ||
+      document.body.clientHeight; //Get height of the screen
+    cardX = (width * 640) / 1180;
+    cardY = (height * 410) / 820;
+
+    if (height < 420) {
+      cardX = (width * 460) / 851;
+      cardY = (height * 110) / 393;
+      aembarSize = (width * 65) / 1180;
+      initialX = 310;
+      initialY = 170;
+    }
+
     var playerAembar = 0;
     var collected = 0;
     var collect = false;
@@ -79,8 +131,14 @@ function MainPage() {
     let newAembars = [...aembars];
     if (!forged) {
       newAembars.forEach((element) => {
-        if (element.y >= 480 && !forged) {
-          playerAembar++;
+        if (width > 768) {
+          if (element.x >= cardX && element.y >= cardY) {
+            playerAembar++;
+          }
+        } else {
+          if (element.y >= cardY && !forged) {
+            playerAembar++;
+          }
         }
       });
       if (playerAembar >= keyCost) {
@@ -88,12 +146,24 @@ function MainPage() {
       }
 
       newAembars.forEach((element) => {
-        if (element.y >= 488) {
-          if (collect && collected < keyCost) {
-            element.x = initialX;
-            element.y = initialY;
-            collected++;
-            forged = true;
+        if (width > 768) {
+          if (element.x >= cardX && element.y >= cardY) {
+            console.log(element.x, element.y);
+            if (collect && collected < keyCost) {
+              element.x = initialX;
+              element.y = initialY;
+              collected++;
+              forged = true;
+            }
+          }
+        } else {
+          if (element.y >= 488) {
+            if (collect && collected < keyCost) {
+              element.x = initialX;
+              element.y = initialY;
+              collected++;
+              forged = true;
+            }
           }
         }
       });
@@ -104,11 +174,11 @@ function MainPage() {
             key01IsForged = true;
             break;
           case 2:
-            setKey02Sprite(forgedKey);
+            setKey02Sprite(forgedKeyRed);
             key02IsForged = true;
             break;
           case 3:
-            setKey03Sprite(forgedKey);
+            setKey03Sprite(forgedKeyBlue);
             key03IsForged = true;
             break;
           default:
@@ -131,6 +201,7 @@ function MainPage() {
           key03IsForged = false;
           break;
         default:
+          console.log("Unknown Key");
           break;
       }
     }
@@ -161,27 +232,36 @@ function MainPage() {
           </button>
         </div>
         <div className="keys-div">
-          <img
-            id="key1"
-            src={key01Sprite}
-            className="key"
-            onTouchEnd={(event) => keyForge(1)}
-          />
+          {key01Sprite && (
+            <img
+              src={key01Sprite}
+              alt="Selected image"
+              className="key"
+              id="key01"
+              onTouchEnd={(event) => keyForge(1)}
+            />
+          )}
           <img src={aembarPile} className="pile" />
           <br />
-          <img
-            id="key2"
-            src={key02Sprite}
-            className="key"
-            onTouchEnd={(event) => keyForge(2)}
-          />
+          {key02Sprite && (
+            <img
+              src={key02Sprite}
+              alt="Selected image"
+              className="key"
+              id="key02"
+              onTouchEnd={(event) => keyForge(2)}
+            />
+          )}
           <br />
-          <img
-            id="key3"
-            src={key03Sprite}
-            className="key"
-            onTouchEnd={(event) => keyForge(3)}
-          />
+          {key03Sprite && (
+            <img
+              src={key03Sprite}
+              alt="Selected image"
+              className="key"
+              id="key03"
+              onTouchEnd={(event) => keyForge(3)}
+            />
+          )}
         </div>
         <div className="aembar-repository"></div>
       </div>

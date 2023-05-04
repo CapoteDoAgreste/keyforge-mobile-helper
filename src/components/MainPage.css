@@ -2,56 +2,181 @@ body{
     color: white;
     background-color: #555446;
     overflow: hidden;
+    position: fixed;
 }
-
-.key{
-    height: 41vw;
-}
-.pile{
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
-    height: 50vw;
-    position: absolute;
-    margin-top: 50VW;
-}
-.card-image{
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
-    height: 98vw;
-    margin-left: 15vw;
-    margin-top: -16vw;
-}
-
 .aembar{
-    width: 15vw;
-    position: absolute;
-    left: 25vw;
+    z-index: 2;
 }
 
-.btn-div{
-    color: white;
-    position: absolute;
-    right: 5vw;
-    top: 5vw;
+@media (min-width: 768px) 
+{
+    .keys-div{
+        position: fixed;
+        bottom: 0vw;
+
+    }
+    
+    .key{
+        width: 20vw;
+    }
+    
+    .pile{
+        position: fixed;
+        right: 2vw;
+        top: -1vw;
+        width: 30vw;
+    }
+
+    .aembar{
+        position: absolute;
+    }
+    
+    .card-image{
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+        position: fixed;
+        width: 30vw;
+        right: 8vw;
+        bottom: -3vw;
+    }
+
+    .btn-div{
+        color: white;
+        position: fixed;
+        top: 2vw;
+        left: 3vw;
+        z-index: 1;
+    }
+    
+    button{
+        border: none;
+        border-radius: 1vw;
+        width: 4vw;
+        height: 4vw;
+        color: white;
+        background-color: #ef971e;
+    }
+    
+    #keycost{
+        margin-left: 3vw;
+        margin-right: 3vw;
+        font-weight: bolder;
+    }
+    @media (max-height: 424px) {
+        #key01{
+            position: fixed;
+            bottom: 0vw;
+            left: 20vw;
+        }
+
+        .pile{
+            position: fixed;
+            left: 28vw;
+            top: 5vw;
+            width: 20vw;
+        }
+    }
 }
 
-button{
-    border: none;
-    border-radius: 2vw;
-    width: 8vw;
-    height: 8vw;
-    color: white;
-    background-color: #ef971e;
+@media (max-width: 424px) {
+    .key{
+        height: 41vw;
+    }
+    .pile{
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+        height: 50vw;
+        position: absolute;
+        margin-top: 50VW;
+    }
+    .card-image{
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+        height: 98vw;
+        margin-left: 15vw;
+        margin-top: -14vw;
+    }
+    
+    .aembar{
+        width: 15vw;
+        position: absolute;
+        left: 25vw;
+    }
+    
+    .btn-div{
+        color: white;
+        position: fixed;
+        top: 5vw;
+        right: 3vw;
+    }
+    
+    button{
+        border: none;
+        border-radius: 2vw;
+        width: 8vw;
+        height: 8vw;
+        color: white;
+        background-color: #ef971e;
+    }
+    
+    #keycost{
+        margin-left: 3vw;
+        margin-right: 3vw;
+        font-weight: bolder;
+    }
+    
+    .upload-btn{
+        position: absolute;
+        background-color: #ef971e;
+        z-index: 1;
+        width: 10vw;
+        height: 10vw;
+        border-radius: 2vw;
+        margin-top: 2vw;
+        right: 0.4vw;
+        color: #555446;
+    }
+    
+    input{
+        position: fixed;
+        color: transparent;
+        content: none;
+        margin-left: -30vw;
+        top:15vw
+    }
+    
+    @media (max-height: 670px) {
+    
+        .card-image{
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+            height: 80vw;
+            margin-left: 21vw;
+            margin-top: -12vw;
+        }
+    
+        .key{
+            height: 39vw;
+        }
+    }
+    
 }
 
-#keycost{
-    margin-left: 3vw;
-    margin-right: 3vw;
-    font-weight: bolder;
-}
+

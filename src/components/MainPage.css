@@ -3,180 +3,83 @@ body{
     background-color: #555446;
     overflow: hidden;
     position: fixed;
+    font-size: 200%;
+    
 }
+
+.btn-div{
+    position: fixed;
+    right: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+button{
+    border: none;
+    border-radius: 0.6rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: white;
+    background-color: #ef971e;
+    padding-top: 0.5rem;
+}
+
+#keycost{
+    padding: 0.8rem;
+}
+
 .aembar{
     z-index: 2;
+    width: 30rem;
 }
 
-@media (min-width: 768px) 
-{
-    .keys-div{
-        position: fixed;
-        bottom: 0vw;
+.key{
+    width: 8.5rem;
+    position: absolute;
+    top: 0rem;
+}
+#key02{
+    margin-top: 8.5rem;
+}
+#key03{
+    margin-top: 17rem;
+}
 
-    }
-    
-    .key{
-        width: 29vh;
-    }
-    
-    .pile{
-        position: fixed;
-        right: 2vw;
-        top: -1vw;
-        width: 50vh;
-    }
+.pile{
+    position: fixed;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    width: 15rem;
+    right: -1rem;
+    top: 8rem;
+}
 
-    .aembar{
-        position: absolute;
-    }
-    
+#card{
+    display: flex;
+    justify-content: center;
+}
+
+.card-image{
+    position: fixed;
+    height: 14rem;
+    bottom: 0.5rem;
+    display: flex;
+    justify-content: center;
+    right: 1.5rem;
+}
+
+@media (min-height: 805px){
     .card-image{
-        -webkit-transform: rotate(90deg);
-        -moz-transform: rotate(90deg);
-        -o-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        transform: rotate(90deg);
-        -webkit-transform: rotate(90deg);
-        -moz-transform: rotate(90deg);
-        -o-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        transform: rotate(90deg);
-        position: fixed;
-        width: 50vh;
-        right: 8vw;
-        bottom: -5vw;
-    }
-
-    .btn-div{
-        color: white;
-        position: fixed;
-        top: 2vw;
-        left: 3vw;
-        z-index: 1;
-    }
-    
-    button{
-        border: none;
-        border-radius: 1vw;
-        width: 4vw;
-        height: 4vw;
-        color: white;
-        background-color: #ef971e;
-    }
-    
-    #keycost{
-        margin-left: 3vw;
-        margin-right: 3vw;
-        font-weight: bolder;
-    }
-    @media (max-height: 424px) {
-        #key01{
-            position: fixed;
-            bottom: 0vw;
-            left: 30vh;
-        }
-
-        .pile{
-            position: fixed;
-            left: 28vw;
-            top: 5vw;
-            width: 20vw;
-        }
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+        height: auto;
+        width: 110vw;
+        bottom: 4rem;
+        right: -1.5rem;
     }
 }
-
-@media (max-width: 428px) {
-    .key{
-        height: 41vw;
-    }
-    .pile{
-        -webkit-transform: rotate(90deg);
-        -moz-transform: rotate(90deg);
-        -o-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        transform: rotate(90deg);
-        height: 50vw;
-        position: absolute;
-        margin-top: 50VW;
-    }
-    .card-image{
-        -webkit-transform: rotate(90deg);
-        -moz-transform: rotate(90deg);
-        -o-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        transform: rotate(90deg);
-        height: 45vh;
-        margin-left: 15vw;
-        margin-top: -14vw;
-    }
-    
-    .aembar{
-        width: 15vw;
-        position: absolute;
-        left: 25vw;
-    }
-    
-    .btn-div{
-        color: white;
-        position: fixed;
-        top: 5vw;
-        right: 3vw;
-    }
-    
-    button{
-        border: none;
-        border-radius: 2vw;
-        width: 8vw;
-        height: 8vw;
-        color: white;
-        background-color: #ef971e;
-    }
-    
-    #keycost{
-        margin-left: 3vw;
-        margin-right: 3vw;
-        font-weight: bolder;
-    }
-    
-    .upload-btn{
-        position: absolute;
-        background-color: #ef971e;
-        z-index: 1;
-        width: 10vw;
-        height: 10vw;
-        border-radius: 2vw;
-        margin-top: 2vw;
-        right: 0.4vw;
-        color: #555446;
-    }
-    
-    input{
-        position: fixed;
-        color: transparent;
-        content: none;
-        margin-left: -30vw;
-        top:15vw
-    }
-    
-    @media (max-height: 800px) {
-    
-        .card-image{
-            -webkit-transform: rotate(90deg);
-            -moz-transform: rotate(90deg);
-            -o-transform: rotate(90deg);
-            -ms-transform: rotate(90deg);
-            transform: rotate(90deg);
-            height: 80vw;
-            margin-left: 21vw;
-            margin-top: -12vw;
-        }
-    
-        .key{
-            height: 20vh;
-        }
-    }
-    
-}
-
-

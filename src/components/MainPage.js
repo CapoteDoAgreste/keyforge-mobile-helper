@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/alt-text */
 import { useState } from "react";
+import { remToPixels } from "./scripts/auxiliarFunctions.js";
+import { vwToPixels } from "./scripts/auxiliarFunctions.js";
 import "./MainPage.css";
 import unForgedKey from "./images/key-without-aembar.png";
 import forgedKey from "./images/key-with-aembar.png";
@@ -12,9 +14,9 @@ import aembarimage from "./images/single-aembar.png";
 
 const numRows = 2; // Number of rows
 const numCols = 10; // Number of columns
-var aembarSize = 35; // Size of each aembar in pixels
+var aembarSize = 3.5; // Size of each aembar in pixels
 var initialX = 160; // Initial X position in pixels
-var initialY = 280; // Initial Y position in pixels
+var initialY = 240; // Initial Y position in pixels
 var key01IsForged = false;
 var key02IsForged = false;
 var key03IsForged = false;
@@ -32,23 +34,14 @@ var height =
   document.documentElement.clientHeight ||
   document.body.clientHeight; //Get height of the screen
 
-if (width > 700) {
-  initialX = width - 200; // Initial X position in pixels
-  aembarSize = (width * 90) / 1180;
-  cardX = (width * 640) / 1180;
-  cardY = (height * 410) / 820;
+const example_width = 354;
+const example_height = height - remToPixels(14.5);
 
-  if (height < 428) {
-    cardX = (width * 460) / 851;
-    cardY = (height * 110) / 393;
-    aembarSize = (width * 65) / 1180;
-    initialX = 310;
-    initialY = 170;
-  }
+const example_width_ = 354;
+const example_height_ = height - vwToPixels(110);
 
-  console.log(cardX, cardY);
-}
-console.log(width);
+console.log(example_height);
+
 function MainPage() {
   const [aembars, setAembars] = useState(
     Array(numRows * numCols).fill({ x: initialX, y: initialY })
@@ -99,13 +92,18 @@ function MainPage() {
       window.innerHeight ||
       document.documentElement.clientHeight ||
       document.body.clientHeight; //Get height of the screen
-    cardX = (width * 640) / 1180;
-    cardY = (height * 410) / 820;
+    cardX = (width * example_width_) / example_height_;
+    cardY = (height * example_width_) / example_height_;
 
-    if (height < 428) {
-      cardX = (width * 460) / 851;
-      cardY = (height * 110) / 393;
-      aembarSize = (width * 65) / 1180;
+    if (height < 805) {
+      /*
+      const example_width = 354;
+      const example_height = height - remToPixels(14.5);
+
+      const example_width_ = 354;
+      const example_height_ = height - vwToPixels(110);*/
+      cardX = 0;
+      cardY = height - remToPixels(14.5);
       initialX = 310;
       initialY = 170;
     }
@@ -131,14 +129,8 @@ function MainPage() {
     let newAembars = [...aembars];
     if (!forged) {
       newAembars.forEach((element) => {
-        if (width > 768) {
-          if (element.x >= cardX && element.y >= cardY) {
-            playerAembar++;
-          }
-        } else {
-          if (element.y >= cardY && !forged) {
-            playerAembar++;
-          }
+        if (element.x >= cardX && element.y >= cardY) {
+          playerAembar++;
         }
       });
       if (playerAembar >= keyCost) {
@@ -146,24 +138,13 @@ function MainPage() {
       }
 
       newAembars.forEach((element) => {
-        if (width > 768) {
-          if (element.x >= cardX && element.y >= cardY) {
-            console.log(element.x, element.y);
-            if (collect && collected < keyCost) {
-              element.x = initialX;
-              element.y = initialY;
-              collected++;
-              forged = true;
-            }
-          }
-        } else {
-          if (element.y >= 488) {
-            if (collect && collected < keyCost) {
-              element.x = initialX;
-              element.y = initialY;
-              collected++;
-              forged = true;
-            }
+        if (element.x >= cardX && element.y >= cardY) {
+          console.log(element.x, element.y);
+          if (collect && collected < keyCost) {
+            element.x = initialX;
+            element.y = initialY;
+            collected++;
+            forged = true;
           }
         }
       });
@@ -276,8 +257,8 @@ function MainPage() {
               position: "absolute",
               left: aembar.x + "px",
               top: aembar.y + "px",
-              width: aembarSize + "px",
-              height: aembarSize + "px",
+              width: aembarSize + "rem",
+              height: aembarSize + "rem",
             }}
             onTouchStart={(event) => handleTouchStart(index, event)}
             onTouchEnd={handleTouchEnd}
